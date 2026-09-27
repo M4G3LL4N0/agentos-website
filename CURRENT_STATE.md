@@ -18,7 +18,7 @@ First site for AgentOS. Static Vite. No analytics.
 ## Not built
 
 - Live engine connection
-- Custom domain (production URL is assigned at deploy time)
+- Custom domain. Production alias: https://agentos-website-ten.vercel.app
 
 ## Links
 
