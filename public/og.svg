@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#161714"/>
+  <rect x="80" y="90" width="1040" height="450" fill="#eadcc6"/>
+  <rect x="80" y="90" width="150" height="450" fill="#d7c4a6"/>
+  <path d="M230 90 v450" stroke="#8a7d66" stroke-dasharray="4 6"/>
+  <text x="260" y="160" font-size="22" font-family="ui-monospace, monospace" fill="#5e584c" letter-spacing="4">EXECUTION DOCKET</text>
+  <text x="260" y="230" font-size="28" font-family="ui-monospace, monospace" fill="#1c1a16">obj_fb47cae95169</text>
+  <text x="260" y="300" font-size="56" font-family="Public Sans, Helvetica, sans-serif" fill="#1c1a16">Requested is not verified.</text>
+  <text x="260" y="380" font-size="26" font-family="ui-monospace, monospace" fill="#1c1a16">REQUESTED  `  ATTEMPTED  `  EXECUTED  `  VERIFIED</text>
+  <text x="260" y="450" font-size="20" font-family="ui-monospace, monospace" fill="#5e584c">mode=simulated   result=PARTIAL   cost=UNKNOWN</text>
+</svg>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AgentOS — Requested is not verified.</title>
+    <meta
+      name="description"
+      content="AgentOS is a local, provider-neutral control plane for agent work. It records requested, attempted, executed, and verified as different facts. Default mode is simulated. LIVE needs authority."
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#161714" />
+    <link id="canonical-url" rel="canonical" href="/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AgentOS — Requested is not verified." />
+    <meta
+      property="og:description"
+      content="A local control plane that refuses to treat adapter output as the truth."
+    />
+    <meta id="og-url" property="og:url" content="/" />
+    <meta id="og-image" property="og:image" content="/og.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AgentOS — Requested is not verified." />
+    <meta
+      name="twitter:description"
+      content="Requested ≠ attempted ≠ executed ≠ verified."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AgentOS",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Linux",
+        "softwareVersion": "0.5.0",
+        "description": "Local provider-neutral agent execution control plane. CLI, HTTP API and MCP over one core.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="mast">
+      <p class="mast__mark">execution control plane</p>
+      <nav class="mast__nav" aria-label="Product">
+        <a href="https://github.com/M4G3LL4N0/agentos">Source</a>
+      </nav>
+      <p class="mast__ver" id="product-version">v0.5.0</p>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="inspect">
+        <div class="hero__copy">
+          <p class="eyebrow">local · stdlib · sqlite</p>
+          <h1>Requested is not verified.</h1>
+          <p id="thesis" class="lede"></p>
+        </div>
+
+        <div class="board" id="inspect-board">
+          <div class="board__tools">
+            <div class="board__tabs" role="group" aria-label="Captured sessions">
+              <button type="button" data-session="echo">echo</button>
+              <button type="button" data-session="refuse">refuse</button>
+            </div>
+            <button type="button" id="inspect-play" class="board__play">replay</button>
+          </div>
+          <pre class="board__cmd" id="inspect-command"></pre>
+          <div class="docket" id="inspect-root"></div>
+          <p class="board__note" id="inspect-note"></p>
+          <p class="board__meaning" id="inequality-meaning" hidden></p>
+        </div>
+      </section>
+
+      <section class="band" id="loop">
+        <h2>The loop is the product.</h2>
+        <p>
+          Not a chat. Not a standing crew of researcher / builder / red-team.
+          Those roles can appear on a plan. They are not the architecture.
+        </p>
+        <ol class="loop" id="loop-list"></ol>
+      </section>
+
+      <section class="band" id="mode">
+        <h2>SIMULATED is the default.</h2>
+        <p>
+          LIVE needs explicit authorization. Detection of a binary is never
+          READY. Cost is UNKNOWN unless a charge was measured. The echo
+          session above completed an objective and still recorded
+          <code>result_state=PARTIAL</code> because the mode was simulated.
+        </p>
+        <ul class="modes" id="mode-list"></ul>
+      </section>
+
+      <section class="band" id="surfaces">
+        <h2>Three surfaces. One core.</h2>
+        <p>
+          CLI, HTTP, and MCP are thin. Business logic lives in
+          <code>services.AgentOS</code>. A new interface that bypasses that
+          facade is a defect.
+        </p>
+        <ul class="surfaces" id="surface-list"></ul>
+      </section>
+
+      <section class="band" id="readiness">
+        <h2>Readiness is measured, then claimed.</h2>
+        <p>
+          From <code>agentos doctor</code> on 2026-09-25 in an isolated home.
+          Health is what a probe returned. Readiness is what AgentOS may say.
+          <code>xai</code> is AUTH_REQUIRED. <code>langgraph</code> is
+          UNAVAILABLE. Those are not failures of the page.
+        </p>
+        <div class="table-wrap">
+          <table class="ledger">
+            <caption>
+              Capability readiness ledger — isolated AgentOS 0.5.0 doctor
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">capability</th>
+                <th scope="col">readiness</th>
+                <th scope="col">health</th>
+              </tr>
+            </thead>
+            <tbody id="cap-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="band" id="triage">
+        <h2>Cheap work stays cheap.</h2>
+        <p>
+          Rules-first triage, recorded by
+          <code>agentos efficiency triage</code>. GrokBot is a late
+          escalation, not the first reflex.
+        </p>
+        <ul class="triages" id="triage-list"></ul>
+      </section>
+
+      <section class="band" id="install">
+        <h2>Run it against a throwaway home.</h2>
+        <p>
+          Python 3.11+, no runtime dependencies. State lives in
+          <code>$AGENTOS_HOME</code> or <code>~/.agentos</code>. Use a temp
+          directory until you mean it. There is no install script to pipe.
+        </p>
+        <ol class="install" id="install-list"></ol>
+      </section>
+
+      <section class="band band--not" id="not">
+        <h2>What this is not.</h2>
+        <ul class="nots" id="not-list"></ul>
+      </section>
+    </main>
+
+    <footer class="colophon">
+      <p>
+        AgentOS 0.5.0 · MIT · stdlib Python · captured sessions from an
+        isolated home on 2026-09-25. The site does not talk to a running
+        engine.
+        <a href="https://github.com/M4G3LL4N0/agentos">GitHub</a>
+      </p>
+      <p>
+        Planned and not built: MCP client, API auth, sandboxing, OrgOS.
+        Loopback HTTP/MCP are unauthenticated.
+      </p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

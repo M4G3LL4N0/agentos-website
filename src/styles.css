@@ -1,0 +1,588 @@
+:root {
+  --chassis: #161714;
+  --chassis-2: #1f211c;
+  --paper: #eadcc6;
+  --paper-edge: #c9b392;
+  --ink: #1c1a16;
+  --ink-dim: #5e584c;
+  --field: #2c5f5c;
+  --caution: #c47a1a;
+  --stop: #9c3a28;
+  --pass: #3a6844;
+  --rule: #8a7d66;
+  --gutter: clamp(1rem, 3.5vw, 2.75rem);
+  --measure: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--chassis);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--chassis);
+  color: var(--paper);
+  font-family: "Public Sans", "Helvetica Neue", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.7rem 1.1rem;
+  z-index: 10;
+}
+
+.skip:focus {
+  left: var(--gutter);
+  top: 0.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--caution);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  margin: 0 0 0.75rem;
+  max-width: 14ch;
+  letter-spacing: -0.01em;
+  word-spacing: 0.04em;
+}
+
+h2 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  margin: 0 0 0.65rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 42rem;
+}
+
+code,
+pre,
+.docket__id,
+.journal__type,
+.stamp,
+.ledger,
+.stub,
+.board__cmd {
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-variant-ligatures: none;
+}
+
+code {
+  font-size: 0.84em;
+  color: color-mix(in srgb, var(--paper) 88%, var(--caution));
+}
+
+pre {
+  margin: 0;
+  overflow-x: auto;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.mast {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem var(--gutter);
+  border-bottom: 1px solid color-mix(in srgb, var(--paper) 12%, transparent);
+}
+
+.mast__nav {
+  margin-left: auto;
+}
+
+.mast__nav a,
+.colophon a {
+  color: inherit;
+}
+
+.mast__mark,
+.mast__ver,
+.eyebrow,
+.docket__kind,
+.stub__title,
+.stub__mode {
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--paper) 55%, var(--rule));
+  margin: 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 2.5rem var(--gutter) 3rem;
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+}
+
+.eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.lede {
+  color: color-mix(in srgb, var(--paper) 78%, var(--rule));
+}
+
+.board {
+  min-width: 0;
+}
+
+.board__tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.board__tabs {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.board__tabs button,
+.board__play {
+  appearance: none;
+  border: 1px solid var(--paper-edge);
+  background: transparent;
+  color: var(--paper);
+  font: inherit;
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+.board__tabs button.is-on,
+.board__play {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.board__cmd {
+  background: var(--chassis-2);
+  color: color-mix(in srgb, var(--paper) 80%, var(--field));
+  padding: 0.7rem 0.8rem;
+  margin-bottom: 0.7rem;
+  border-left: 3px solid var(--field);
+  white-space: pre-wrap;
+}
+
+.docket {
+  display: grid;
+  grid-template-columns: 6.2rem minmax(0, 1fr);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 28rem;
+}
+
+.stub {
+  background: color-mix(in srgb, var(--paper) 82%, var(--paper-edge));
+  border-right: 1px dashed var(--rule);
+  padding: 0.85rem 0.55rem;
+}
+
+.stub__list {
+  list-style: none;
+  margin: 0.8rem 0;
+  padding: 0;
+}
+
+.stub__item {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  padding: 0.35rem 0;
+  border-top: 1px dotted var(--paper-edge);
+}
+
+.stub__item.is-on {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.docket__face {
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.docket__head {
+  margin-bottom: 0.75rem;
+}
+
+.docket__id {
+  margin: 0.15rem 0 0.2rem;
+  font-size: 0.78rem;
+}
+
+.docket__title {
+  margin: 0;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+
+.inequality {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.35rem;
+  margin: 0 0 0.9rem;
+  padding: 0.45rem 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+.inequality__word {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.15rem;
+  color: var(--ink-dim);
+  cursor: pointer;
+}
+
+.inequality__word.is-reached {
+  color: var(--ink);
+}
+
+.inequality__word.is-focus {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.inequality__neq {
+  color: var(--stop);
+  font-weight: 600;
+}
+
+.docket__fields {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.28rem 0.6rem;
+  margin: 0 0 0.8rem;
+}
+
+.docket__row {
+  display: contents;
+}
+
+.docket__row.is-focus .docket__key,
+.docket__row.is-focus .docket__val {
+  background: color-mix(in srgb, var(--caution) 22%, var(--paper));
+}
+
+.docket__key {
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin: 0;
+}
+
+.docket__val,
+.docket__plain {
+  margin: 0;
+  font-size: 0.86rem;
+}
+
+.stamp {
+  display: inline-block;
+  padding: 0.05rem 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  border: 1px solid currentColor;
+}
+
+.stamp--pass {
+  color: var(--pass);
+}
+
+.stamp--stop {
+  color: var(--stop);
+}
+
+.stamp--caution {
+  color: var(--caution);
+}
+
+.stamp--field {
+  color: var(--field);
+}
+
+.docket__next,
+.docket__marker {
+  font-size: 0.86rem;
+  margin: 0 0 0.75rem;
+  max-width: none;
+  overflow-wrap: anywhere;
+}
+
+.docket__marker {
+  border-left: 3px solid var(--pass);
+  padding-left: 0.6rem;
+}
+
+.journal {
+  list-style: none;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  max-height: 14rem;
+  overflow: auto;
+  border-top: 1px solid var(--paper-edge);
+}
+
+.journal__item,
+.journal__empty {
+  display: grid;
+  grid-template-columns: 6.4rem 11.5rem 1fr;
+  gap: 0.45rem;
+  padding: 0.32rem 0;
+  border-bottom: 1px dotted var(--paper-edge);
+  font-size: 0.7rem;
+}
+
+.journal__item.is-focus {
+  background: color-mix(in srgb, var(--caution) 18%, var(--paper));
+}
+
+.journal__type {
+  letter-spacing: 0.02em;
+}
+
+.evidence {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.evidence__item {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+  padding: 0.15rem 0;
+}
+
+.evidence__kind {
+  font-family: "Martian Mono", ui-monospace, monospace;
+  color: var(--field);
+}
+
+.board__note,
+.board__meaning {
+  margin: 0.7rem 0 0;
+  font-size: 0.88rem;
+  color: color-mix(in srgb, var(--paper) 72%, var(--rule));
+}
+
+.band {
+  padding: 2.4rem var(--gutter);
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  border-top: 1px solid color-mix(in srgb, var(--paper) 12%, transparent);
+}
+
+.loop,
+.modes,
+.surfaces,
+.triages,
+.install,
+.nots {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+}
+
+.loop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.2rem;
+}
+
+.loop li {
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+}
+
+.loop li + li::before {
+  content: "→ ";
+  color: var(--caution);
+}
+
+.modes,
+.surfaces,
+.triages,
+.nots {
+  display: grid;
+  gap: 1rem;
+}
+
+.mode strong,
+.surface strong,
+.triage strong,
+.nots strong {
+  display: block;
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.surface code,
+.triage code {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  margin-top: 1rem;
+}
+
+.ledger caption {
+  caption-side: bottom;
+  text-align: left;
+  padding-top: 0.6rem;
+  color: color-mix(in srgb, var(--paper) 55%, var(--rule));
+}
+
+.ledger th,
+.ledger td {
+  text-align: left;
+  padding: 0.4rem 0.55rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--paper) 12%, transparent);
+}
+
+.ledger [data-tone="AVAILABLE"],
+.ledger [data-tone="OK"] {
+  color: color-mix(in srgb, var(--pass) 70%, var(--paper));
+}
+
+.ledger [data-tone="AUTH_REQUIRED"],
+.ledger [data-tone="UNKNOWN"] {
+  color: color-mix(in srgb, var(--caution) 75%, var(--paper));
+}
+
+.ledger [data-tone="UNAVAILABLE"] {
+  color: color-mix(in srgb, var(--stop) 70%, var(--paper));
+}
+
+.install li {
+  margin-bottom: 1rem;
+}
+
+.install h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.install pre {
+  background: var(--chassis-2);
+  padding: 0.7rem 0.8rem;
+  border-left: 3px solid var(--paper-edge);
+}
+
+.band--not {
+  background: var(--chassis-2);
+}
+
+.colophon {
+  padding: 2rem var(--gutter) 3rem;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 12%, transparent);
+  color: color-mix(in srgb, var(--paper) 55%, var(--rule));
+  font-size: 0.88rem;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 1.6rem;
+  }
+
+  .docket {
+    grid-template-columns: 1fr;
+  }
+
+  .stub {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-right: 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .stub__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.7rem;
+    margin: 0;
+  }
+
+  .stub__item {
+    border: 0;
+    padding: 0;
+  }
+
+  .journal__item,
+  .journal__empty {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  .docket__fields,
+  .evidence__item {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
