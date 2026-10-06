@@ -1,5 +1,21 @@
 # agentos-website
 
+<p align="center">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/hero/hero-reduced.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/hero/hero-light.svg">
+    <img src="assets/hero/hero-motion.svg" alt="agentos-website — animated project plate showing request &rarr; peer exchange &rarr; attest &rarr; accept. Motion depicts this project's real state transition." width="100%">
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/hero/computational-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/hero/computational-light.svg">
+    <img src="assets/hero/computational-motion.svg" alt="State machine: request &rarr; peer exchange &rarr; attest &rarr; accept." width="100%">
+  </picture>
+</p>
+
 Public site for [AgentOS](../agentos) — a local, provider-neutral agent
 execution control plane.
 
